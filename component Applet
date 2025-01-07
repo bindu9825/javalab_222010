@@ -1,0 +1,42 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.Checkbox;
+import java.awt.Label;
+import java.awt.LayoutManager;
+import java.awt.TextField;
+
+public class ComponentApplet extends Applet {
+   private TextField nameField;
+   private Button submitButton;
+   private Label resultLabel;
+   private Checkbox agreeCheckbox;
+
+   public ComponentApplet() {
+   }
+
+   public void init() {
+      this.setLayout((LayoutManager)null);
+      this.nameField = new TextField();
+      this.submitButton = new Button("Submit");
+      this.resultLabel = new Label("Enter your name and click Submit");
+      this.agreeCheckbox = new Checkbox("I agree to the terms");
+      this.nameField.setBounds(50, 50, 200, 30);
+      this.submitButton.setBounds(50, 100, 80, 30);
+      this.resultLabel.setBounds(50, 150, 250, 30);
+      this.agreeCheckbox.setBounds(50, 200, 200, 30);
+      this.add(this.nameField);
+      this.add(this.submitButton);
+      this.add(this.resultLabel);
+      this.add(this.agreeCheckbox);
+      this.submitButton.addActionListener((var1) -> {
+         String var2 = this.nameField.getText();
+         if (this.agreeCheckbox.getState()) {
+            this.resultLabel.setText("Hello " + var2 + ", you agreed.");
+         } else {
+            this.resultLabel.setText("Hello " + var2 + ", you must agree.");
+         }
+
+      });
+   }
+}
